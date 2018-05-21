@@ -2,7 +2,7 @@
 const express   = require('express');
 const path      = require('path');
 const app       = express();
-var httProxy    = require('http-proxy');
+var httpProxy   = require('http-proxy');
 var apiProxy    = httpProxy.createProxyServer();
 
 // Serve only the static files form the dist directory
