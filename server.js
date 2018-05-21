@@ -12,8 +12,8 @@ app.get('/*', function(req, res) {
 });
 
 // Use proxy
-express.use('/api/v1/**', proxy('https://raphael.cfapps.io'));
-express.use('/oauth/token', proxy('https://raphael.cfapps.io'));
+app.use('/api/v1/**', proxy('https://raphael.cfapps.io'));
+app.use('/oauth/token', proxy('https://raphael.cfapps.io'));
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
