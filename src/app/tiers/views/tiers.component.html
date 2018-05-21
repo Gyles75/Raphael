@@ -1,0 +1,29 @@
+<!-- Error -->
+<div class="row" *ngIf="error">
+    <div class="col-12">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>{{ error.status + ' ' + error.statusText }}</strong>{{ ': ' + handleError(error) }}
+        </div>
+    </div>
+</div>
+
+<!-- Form -->
+<div>
+    <rpl-tiers-form
+        [tiers]="tiers"
+        [isUpdMode]="isUpdMode"
+        (emitter)="dispatchReceivedEvents($event)">
+    </rpl-tiers-form>
+</div>
+
+<!-- Table -->
+<div *ngIf="(tiersItems && tiersItems.length > 0)">
+    <rpl-tiers-table 
+        [tiersItems]="tiersItems"
+        [isUpdMode]="isUpdMode"
+        (emitter)="dispatchReceivedEvents($event)">
+    </rpl-tiers-table>
+</div>

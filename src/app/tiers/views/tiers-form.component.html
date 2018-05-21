@@ -1,0 +1,28 @@
+<div class="row tiers-form">
+    <div class="col-xs-3">
+        <div class="form-group">
+            <form #tiersForm="ngForm">
+                <input type="text" class="form-control" placeholder="RAF" name="raf" [(ngModel)]="tiers.raf" />
+                <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="tiers.name" />
+                <select class="form-control" name="doubtful" [(ngModel)]="tiers.doubtful">
+                    <option [value]="undefined">Bucket</option>
+                    <option [value]="true">Douteux</option>
+                    <option [value]="false">Sain</option>
+                </select>
+                <select class="form-control" name="active" [(ngModel)]="tiers.active">
+                    <option [value]="undefined">Statut</option>
+                    <option value="true">Actif</option>
+                    <option value="false">Inactif</option>
+                </select>
+                <button type="button" class="btn" [ngClass]="{'btn-success':isUpdMode, 'btn-primary':!isUpdMode}" (click)="whenSubmit()">
+                    <i class="fa" [ngClass]="{'fa-check':isUpdMode, 'fa-plus':!isUpdMode}"></i>
+                    {{ (isUpdMode ? 'Update' : 'Ajouter') }}
+                </button>
+                <button type="button" class="btn btn-danger btn-reset" (click)="whenReset($event)">
+                    <i class="fa fa-close"></i>
+                    Rétablir
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
